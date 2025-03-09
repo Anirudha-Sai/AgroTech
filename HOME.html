@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Video Example</title>
+    <style>    
+        /* Style for the larger top frame */
+        .top-frame {
+            background-color: transparent;
+            color: black;
+            text-align: center;
+            padding: 25px; /* Increased padding for a larger frame */
+            font-size: 50px; /* Larger font size */
+            font-weight: bold;
+            text-transform: uppercase; /* Capital letters */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* General body and video container styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 70px); /* Adjusted for larger top frame height */
+            margin-top: 70px; /* Push content down by larger top frame height */
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 20px;
+            text-decoration: none; 
+        }
+    </style>
+</head>
+<body>
+    <!-- Larger top frame displaying "AGROTECH" in capital letters -->
+    <div class="top-frame">
+        AGROTECH
+    </div>
+
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="Assets/Background.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+
+    <div class="content">
+        <a class="circle" href="Farmer/farmer_login.html">Farmer</a>
+        <a class="circle" href="Consumer/details.html">Consumer</a>
+    </div>
+
+</body>
+</html>

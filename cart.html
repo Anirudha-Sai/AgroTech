@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroTech Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+    <header>
+        <h1>AgroTech</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html" class="active">Cart</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="cart">
+        <h2>Your Cart</h2>
+
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <tr>
+                    <td>Fresh Tomatoes</td>
+                    <td><input type="number" class="quantity" value="2" min="1"></td>
+                    <td class="price">30</td>
+                    <td class="item-total">60</td>
+                    <td><button class="remove-btn">Remove</button></td>
+                </tr>
+                <tr>
+                    <td>Organic Carrots</td>
+                    <td><input type="number" class="quantity" value="1" min="1"></td>
+                    <td class="price">40</td>
+                    <td class="item-total">40</td>
+                    <td><button class="remove-btn">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <h3>Cart Summary</h3>
+            <p>Subtotal: <span id="subtotal">100.00</span>/-</p>
+            <p>Shipping: <span id="shipping">5.00</span>/-</p>
+            <p>Total: <span id="total">105.00</span>/-</p>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+
+        <h3>Add New Item</h3>
+        <form id="add-item-form">
+            <label for="item-name">Item Name:</label>
+            <input type="text" id="item-name" required>
+            <label for="item-price">Price:</label>
+            <input type="number" id="item-price" min="0" required>
+            <button type="submit">Add Item</button>
+        </form>
+    </section>
+
+    <script src="cart.js"></script>
+</body>
+</html>

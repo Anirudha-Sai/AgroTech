@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>FarmFresh - Organic Farm Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .item-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin: 20px auto;
+            padding: 10px;
+            width: 80%;
+        }
+
+        .item-container div {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .cart-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .item-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+    <!-- Topbar Start -->
+        <div class="container-fluid px-5 d-none d-lg-block">
+            <div class="row gx-5 py-3 align-items-center">
+                <div class="col-lg-3">
+                    <div class="d-flex align-items-center justify-content-start">
+                        <i class="bi bi-phone-vibrate fs-1 text-primary me-2"></i>
+                        <h2 class="mb-0">+91 9988776655</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a href="index.html" class="navbar-brand ms-lg-5">
+                            <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Agro</span>Tech</h1>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <a class="btn btn-primary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-primary btn-square rounded-circle me-2" href="https://facebook.com/freewebsitecode/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-primary btn-square rounded-circle me-2" href="https://freewebsitecode.com/"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-primary btn-square rounded-circle" href="https://youtube.com/freewebsitecode/"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+    
+    
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-5">
+            <a href="index.html" class="navbar-brand d-flex d-lg-none">
+                <h1 class="m-0 display-4 text-secondary"><span class="text-white">Farm</span>Fresh</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="home.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link ">Service</a>
+                    
+                    <a href="testcart.html" class="nav-item nav-link active">Cart</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="feature.html" class="dropdown-item">Features</a>
+                            <a href="team.html" class="dropdown-item">The Team</a>
+                            
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+    <!-- Cart Section -->
+    <h1>CART</h1>
+
+    <div class="item-container">
+        <!-- Items will be dynamically inserted here -->
+    </div>
+
+    <h2>Cart Total: ₹<span id="cart-total">0.00</span></h2>
+    
+    <button id="payment-btn" class=" btn btn-primary " style="margin-left: 48%; margin-bottom: 2% ;">Pay Now</button>
+
+    <script>
+        let totalCost = 0;
+        const items = [
+            { name: "Tomato", type: "Vegetable", price: 25, quantity: 0, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_DGyv98xd9u3NP20O5QHSWJ9FrTQz4GDjYw&s"},
+            { name: "Potato", type: "Vegetable", price: 30, quantity: 0, image: "https://plus.unsplash.com/premium_photo-1675365779531-031dfdcdf947?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cG90YXRvfGVufDB8fDB8fHww"},
+            { name: "Capsicum", type: "Vegetable", price: 45, quantity: 0, image: "https://5.imimg.com/data5/SELLER/Default/2021/4/VG/TB/FB/6846881/hydro-phonic-cherry-tamatoyellow-red-500x500.jpg"},
+            { name: "Onion", type: "Vegetable", price: 70, quantity: 0, image: "https://m.media-amazon.com/images/I/51DJ-9xkuQL._AC_UF1000,1000_QL80_.jpg"},
+            { name: "Cabbage", type: "Vegetable", price: 40, quantity: 0, image: "https://img.freepik.com/premium-vector/cabbage-image-cute-image-isolated-cabbage-vector-illustration_118339-5280.jpg"},
+            { name: "Broccoli", type: "Vegetable", price: 60, quantity: 0, image: "https://images.immediate.co.uk/production/volatile/sites/30/2022/07/Broccoli-78ec54e.jpg"},
+            { name: "Carrot", type: "Vegetable", price: 50, quantity: 0, image: "https://images.pexels.com/photos/143133/pexels-photo-143133.jpeg"},
+            { name: "Ginger", type: "Vegetable", price: 80, quantity: 0, image: "https://www.shutterstock.com/image-photo/fresh-ginger-root-sliced-isolated-260nw-2483150731.jpg"},
+            { name: "Cucumber", type: "Vegetable", price: 40, quantity: 0, image: "https://img.freepik.com/premium-photo/cucumber-slices-isolated-white-background_62856-53.jpg"},
+            { name: "Spinach", type: "Vegetable", price: 20, quantity: 0, image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNwaW5hY2h8ZW58MHx8MHx8fDA%3D"},
+            { name: "Brinjal", type: "Vegetable", price: 30, quantity: 0, image: "https://t4.ftcdn.net/jpg/03/69/98/49/360_F_369984944_mp5bcE534T45okjhprMta7z6ujQlaYXC.jpg"},
+            { name: "Cauliflower", type: "Vegetable", price: 40, quantity: 0, image: "https://media.istockphoto.com/id/511868689/photo/fresh-cauliflower-with-pieces-isolated-on-white.jpg?s=612x612&w=0&k=20&c=6HjOXfDxV2B5Oazl4jK69GiORAtQEPS7WYpTAJ-KW24="},
+            { name: "Pumpkin", type: "Vegetable", price: 60, quantity: 0, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpo5PJCOwmNazXCwtlb3EI_f5UEXe1S_prqdXJAzmvwJEKElB2_2YGhtNvblpkDKqgHI8&usqp=CAU"},
+            { name: "Apple", type: "Fruit", price: 200, quantity: 0, image: "https://images.pexels.com/photos/2966150/pexels-photo-2966150.jpeg?cs=srgb&dl=pexels-rynocerontem-2966150.jpg&fm=jpg"},
+            { name: "Orange", type: "Fruit", price: 120, quantity: 0, image: "https://www.saberhealth.com/uploaded/blog/images/Oranges.jpg"},
+            { name: "Mango", type: "Fruit", price: 150, quantity: 0, image: "https://images.pexels.com/photos/2294471/pexels-photo-2294471.jpeg"},
+            { name: "Grapes", type: "Fruit", price: 100, quantity: 0, image: "https://media.istockphoto.com/id/489520104/photo/green-grape-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=9kg_3pMeBKYnHHjx2JECF61QwzxTikLaQ2w-6A5tOO0="},
+            { name: "Pear", type: "Fruit", price: 120, quantity: 0, image: "https://www.health.com/thmb/lE6czhltdK7OsnjWv8QcsveJxkI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pears-9be62bfe42d14047a59efc9f7cde6023.jpg"},
+            { name: "Strawberry", type: "Fruit", price: 150, quantity: 0, image: "https://hips.hearstapps.com/countryliving/assets/15/22/1432664914-strawberry-facts1.jpg"},
+            { name: "Pineapple", type: "Fruit", price: 80, quantity: 0, image: "https://www.microgreens.co.in/wp-content/uploads/2020/06/fresh-pineapple-281kg-29-500x500-1.png"},
+            { name: "Watermelon", type: "Fruit", price: 90, quantity: 0, image: "https://thumbs.dreamstime.com/b/watermelon-13177659.jpg"},
+            { name: "Papaya", type: "Fruit", price: 60, quantity: 0, image: "https://img.etimg.com/thumb/width-1200,height-1200,imgsize-91748,resizemode-75,msid-97952387/magazines/panache/add-papaya-to-your-plate-the-humble-fruit-aids-weight-loss-prevents-diabetes-reduces-cholesterol.jpg"},
+            { name: "Banana", type: "Fruit", price: 50, quantity: 0, image: "https://www.shutterstock.com/image-photo/banana-fruit-isolated-on-white-600nw-2471393451.jpg"},
+            { name: "Lemon", type: "Fruit", price: 40, quantity: 0, image: "https://cdn.britannica.com/84/188484-050-F27B0049/lemons-tree.jpg"},
+            { name: "Pomegranate", type: "Fruit", price: 100, quantity: 0, image: "https://media.istockphoto.com/id/1175826405/vector/juicy-pomegranate-vector.jpg?s=612x612&w=0&k=20&c=ETYCT_rGZ3VKYTYtTJFNzc4vN5JTkezB-TsGQU5vrAk="},
+            { name: "Guava", type: "Fruit", price: 80, quantity: 0, image: "https://www.shutterstock.com/image-photo/isolated-guava-one-whole-green-260nw-1632762718.jpg"}
+        ];
+
+        function updateCart() {
+            const itemContainer = document.querySelector('.item-container');
+            const cartTotal = document.getElementById('cart-total');
+            
+
+            itemContainer.innerHTML = ''; // Clear current content
+
+            items.forEach((item, index) => {
+                const totalItemCost = item.quantity * item.price;
+                totalCost += totalItemCost;
+
+                itemContainer.innerHTML += `
+                    <div class="item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <p>${item.name}</p>
+                    </div>
+                    <div>${item.type}</div>
+                    <div>₹${item.price} per kg</div>
+                    <div>${item.quantity}</div>
+                    <div class="cart-buttons">
+                        <button onclick="addToCart(${index})"><i class="fas fa-cart-plus"></i></button>
+                        <button onclick="removeFromCart(${index})"><i class="fas fa-trash"></i></button>
+                        <button onclick="increaseQuantity(${index})"><i class="fas fa-plus"></i></button>
+                        <button onclick="decreaseQuantity(${index})"><i class="fas fa-minus"></i></button>
+                    </div>
+                    <div>₹${totalItemCost.toFixed(2)}</div>
+                `;
+            });
+
+            cartTotal.textContent = totalCost.toFixed(2);
+        }
+
+        function addToCart(index) {
+            items[index].quantity += 1;
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            items[index].quantity = 0;
+            updateCart();
+        }
+
+        function increaseQuantity(index) {
+            items[index].quantity += 1;
+            updateCart();
+        }
+
+        function decreaseQuantity(index) {
+            if (items[index].quantity > 0) {
+                items[index].quantity -= 1;
+            }
+            updateCart();
+        }
+        document.getElementById('payment-btn').onclick = function (e) {
+            e.preventDefault();
+    
+            // Call your server to create an order
+            fetch('http://localhost:3000/create-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    price: totalCost // Replace with the actual amount in INR
+                })
+            })
+            .then(response => response.json()) // Parse the JSON response
+            .then(order => {
+                console.log('Order created:', order);
+                var options = {
+                    "key": "rzp_test_xUzWg33hsBbdcw", // Replace with your Razorpay key_id
+                    "amount": order.amount, // Amount in paise
+                    "currency": order.currency,
+                    "name": "Your Company Name",
+                    "description": "Test Transaction",
+                    "order_id": order.id, // Razorpay order_id
+                    "handler": function (response) {
+                        console.log('Payment successful:', response);
+                        // Handle successful payment here
+                    },
+                    "prefill": {
+                        "name": "John Doe",
+                        "email": "john.doe@example.com",
+                        "contact": "9999999999"
+                    }
+                };
+                var rzp1 = new Razorpay(options);
+                rzp1.open();
+            })
+            .catch(error => {
+                console.error('Error creating order:', error);
+            });
+        };
+
+        // Initial load of cart
+        updateCart();
+    </script>
+
+    <!-- Bootstrap JS (Required for Navbar) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

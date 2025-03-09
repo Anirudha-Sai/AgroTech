@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="farmer_login.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons (for the speaker icon) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Login Form</title>
+    <script src="farmer_login.js" defer></script>
+</head>
+<body>
+
+<div class="language-dropdown">
+    <select id="languageOptions" onchange="changeLanguage(this.value)">
+        <option value="english">English</option>
+        <option value="hindi">हिन्दी</option>
+        <option value="tamil">தமிழ்</option>
+        <option value="malayalam">മലയാളം</option>
+        <option value="kannada">ಕನ್ನಡ</option>
+        <option value="telugu">తెలుగు</option>
+    </select>
+</div>
+
+<div class="login-container">
+    <h2 id="form-title">Login Form</h2>
+    <form class="login-form" onsubmit="return validateLogin()">
+        <div class="form-group">
+            <label for="username" id="username-label">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password" id="password-label">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <button class="login-btn" type="submit">Login</button>
+            <p id="error-message" class="error-message"></p>
+        </div>
+        <div class="form-group">
+            <button id="read-btn" style="margin-top: 7%; border-radius: 10%;"><i class="bi bi-volume-up margin-top-25"></i> Read</button>
+            <p id="error-message" class="error-message"></p>
+        </div>
+    </form>
+</div>
+<script>
+    function readOutContent() {
+            // Select specific divs by their IDs and classes (you can modify the selector as needed)
+            const specificDivs = document.querySelectorAll('#form-title, .login-form');
+            
+            const speechQueue = [];
+
+            // Loop through each div and create a SpeechSynthesisUtterance for each
+            specificDivs.forEach(div => {
+                const speech = new SpeechSynthesisUtterance(div.innerText); // Create speech object for each div's text
+                speechQueue.push(speech); // Add the speech object to the queue
+            });
+
+            // Function to read each speech in sequence
+            function speakQueue() {
+                if (speechQueue.length > 0) {
+                    const currentSpeech = speechQueue.shift(); // Get the first speech in the queue
+                    window.speechSynthesis.speak(currentSpeech); // Speak the current speech
+                    currentSpeech.onend = speakQueue; // When it finishes, move to the next one
+                }
+            }
+
+            speakQueue(); // Start reading the queue
+        }
+
+        // Add event listener to the button to trigger the read out
+        document.getElementById('read-btn').addEventListener('click', readOutContent);
+</script>
+</body>
+</html>

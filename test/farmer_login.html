@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="farmer_login.css">
+    <title>Login Form</title>
+    <script src="farmer_login.js" defer></script>
+</head>
+<body>
+
+<div class="language-dropdown">
+    <select id="languageOptions" onchange="changeLanguage(this.value)">
+        <option value="english">English</option>
+        <option value="hindi">हिन्दी</option>
+        <option value="tamil">தமிழ்</option>
+        <option value="malayalam">മലയാളം</option>
+        <option value="kannada">ಕನ್ನಡ</option>
+        <option value="telugu">తెలుగు</option>
+    </select>
+</div>
+
+<div class="login-container">
+    <h2 id="form-title">Login Form</h2>
+    <form class="login-form" onsubmit="return validateLogin()">
+        <div class="form-group">
+            <label for="username" id="username-label">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password" id="password-label">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Login</button>
+            <p id="error-message" class="error-message"></p>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

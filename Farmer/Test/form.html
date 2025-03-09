@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Items</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sell Your Items</h1>
+        <form id="itemForm">
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName" required>
+            
+            <label for="itemType">Type:</label>
+            <select id="itemType" required>
+                <option value="Vegetable">Vegetable</option>
+                <option value="Fruit">Fruit</option>
+            </select>
+            
+            <label for="price">Price per KG:</label>
+            <input type="number" id="price" required>
+            
+            <label for="quantity">Quantity (KG):</label>
+            <input type="number" id="quantity" required>
+            
+            <button type="submit">Add Item</button>
+        </form>
+
+        <h2>Items for Sale</h2>
+        <ul id="itemList">
+            <!-- Items will be displayed here -->
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="form.js"></script>
+    
+</body>
+</html>

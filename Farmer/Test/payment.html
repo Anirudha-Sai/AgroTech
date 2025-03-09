@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #payment-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+    <!-- Razorpay checkout script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <h2>Make a Payment</h2>
+    <button id="payment-btn">Pay Now</button>
+    <script>
+        document.getElementById('payment-btn').onclick = function (e) {
+            e.preventDefault();
+    
+            // Call your server to create an order
+            fetch('http://localhost:3000/create-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    price: 1 // Replace with the actual amount in INR
+                })
+            })
+            .then(response => response.json()) // Parse the JSON response
+            .then(order => {
+                console.log('Order created:', order);
+                var options = {
+                    "key": "rzp_test_xUzWg33hsBbdcw", // Replace with your Razorpay key_id
+                    "amount": order.amount, // Amount in paise
+                    "currency": order.currency,
+                    "name": "Your Company Name",
+                    "description": "Test Transaction",
+                    "order_id": order.id, // Razorpay order_id
+                    "handler": function (response) {
+                        console.log('Payment successful:', response);
+                        // Handle successful payment here
+                    },
+                    "prefill": {
+                        "name": "John Doe",
+                        "email": "john.doe@example.com",
+                        "contact": "9999999999"
+                    }
+                };
+                var rzp1 = new Razorpay(options);
+                rzp1.open();
+            })
+            .catch(error => {
+                console.error('Error creating order:', error);
+            });
+        };
+    </script>
+    
+</body>
+</html>
